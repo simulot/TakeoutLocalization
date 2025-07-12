@@ -1,0 +1,54 @@
+{
+    "YouTube and YouTube Music": {
+        "translations": {
+            "kind": "directory",
+            "fr": "YouTube et YouTube Music"
+        },
+        "channels": {
+            "translations": {
+                "kind": "directory",
+                "fr": "chaînes"
+            },
+            "channel.csv": {
+                "translations": {
+                    "kind": "file",
+                    "fr": "chaîne.csv",
+                    "columns": {
+                        "Channel ID": {
+                            "fr": "ID de la chaîne"
+                        },
+                        "Channel Title (Original)": {
+                            "fr": "Titre de la chaîne (d'origine)"
+                        },
+                        "Channel Visibility": {
+                            "fr": "Visibilité de la chaîne"
+                        }
+                    }
+                }
+            }
+        },
+        "video metadata": {
+            "translations": {
+                "kind": "directory",
+                "fr": "métadonnées des vidéos"
+            },
+            "videos.csv": {
+                "translations": {
+                    "kind": "file",
+                    "fr": "vidéos.csv",
+                    "columns": {
+                        "Video ID": {
+                            "fr": "ID vidéo"
+                        },
+                        "Channel ID": {
+                            "fr": "ID de la chaîne"
+                        },
+                        "Video Title (Original)": {
+                            "fr": "Titre de la vidéo (d'origine)"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
