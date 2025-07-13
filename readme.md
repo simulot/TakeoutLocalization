@@ -19,13 +19,52 @@ The idea is to collect the different localizations used by Google and present th
 
 ## Repository Structure
 
-The folder `localizations` contains the localization files in JSON format. Each file represents a Google service and contains the different localizations for the files and directories used by that service. Entries are hierarchical, with directories containing directories or files and files containing columns.
+The folder `localizations` contains the localization files in JSON format. Each file represents a Google service and contains the different localizations for the files and directories used by that service. Entries are hierarchical, with nested structures as follows:
 
-Keys are always in American English, while translations are provided for specific languages (e.g., French). The structure is as follows:
+1. **Directories**:
+   - Represented by the `kind: "directory"` key.
+   - Can contain subdirectories listed under the `subdirectories` key, and files listed under the `files` key.
 
-- **Directories**: Represented by the `kind: "directory"` key.
-- **Files**: Represented by the `kind: "file"` key.
-- **Columns**: Contain specific translation mappings for file headers.
+2. **Files**:
+   - Represented by the `kind: "file"` key.
+   - Can contain columns, which are listed under the `columns` key.
+
+3. **Columns**:
+   - Contain specific translation mappings for file headers.
+
+### Example of Nested Structure
+
+```json
+{
+    "Service Name": {
+        "translations": {
+            "kind": "directory",
+            "fr": "Nom du service"
+        },
+        "subdirectories": {
+            "subdirectory": {
+                "translations": {
+                    "kind": "directory",
+                    "fr": "Nom du sous-répertoire"
+                },
+                "files": {
+                    "file.csv": {
+                        "translations": {
+                            "kind": "file",
+                            "fr": "nom_fichier.csv",
+                            "columns": {
+                                "Column Header": {
+                                    "fr": "En-tête de colonne"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+```
 
 ## How to Contribute
 
@@ -45,14 +84,16 @@ Create a new file in the `localizations` directory with the name of the product 
             "fr": "Nom du produit",
             "es": "Nombre del producto",
             "ru": "Название продукта"
-        }
+        },
+        "subdirectories": {},
+        "files": {}
     }
 }
 ```
 
 ### Adding a New Directory in an Existing Product
 
-To add a new directory, include a new key under the appropriate parent directory. Use the following format:
+To add a new directory, include a new key under the appropriate parent directory's `subdirectories` object. Use the following format:
 
 ```json
 "directory_name": {
@@ -61,13 +102,15 @@ To add a new directory, include a new key under the appropriate parent directory
         "fr": "nom du répertoire",
         "es": "nombre del directorio",
         "ru": "название каталога"
-    }
+    },
+    "subdirectories": {},
+    "files": {}
 }
 ```
 
 ### Adding a New File in an Existing Directory
 
-To add a new file, include a new key under the appropriate directory. Use the following format:
+To add a new file, include a new key under the appropriate directory's `subdirectories` object. Use the following format:
 
 ```json
 "file_name.csv": {
@@ -114,23 +157,28 @@ According to the actual Takeout files, the directory and the file name aren't tr
             "es": "YouTube y YouTube Music",
             "ru": "YouTube и YouTube Music"
         },
-        "playlists": {
-            "translations": {
-                "kind": "directory"
-            },
-            "playlists.csv": {
+        "subdirectories": {
+            "playlists": {
                 "translations": {
-                    "kind": "file",
-                    "columns": {
-                        "Playlist ID": {
-                            "fr": "ID de la playlist",
-                            "es": "ID de la lista de reproducción",
-                            "ru": "ID плейлиста"
-                        },
-                        "Playlist Title (Original)": {
-                            "fr": "Titre (d'origine) de la playlist",
-                            "es": "Título (original) de la lista de reproducción",
-                            "ru": "Название (оригинал) плейлиста"
+                    "kind": "directory",
+                    "fr": "playlists"
+                },
+                "files": {
+                    "playlists.csv": {
+                        "translations": {
+                            "kind": "file",
+                            "columns": {
+                                "Playlist ID": {
+                                    "fr": "ID de la playlist",
+                                    "es": "ID de la lista de reproducción",
+                                    "ru": "ID плейлиста"
+                                },
+                                "Playlist Title (Original)": {
+                                    "fr": "Titre (d'origine) de la playlist",
+                                    "es": "Título (original) de la lista de reproducción",
+                                    "ru": "Название (оригинал) плейлиста"
+                                }
+                            }
                         }
                     }
                 }

@@ -9,15 +9,17 @@
             "ru": "Google Фото",
             "bg": "Google Снимки"
         },
-        "metadata.json": {
-            "translations": {
-                "kind": "file",
-                "fr": "métadonnées.json",
-                "it": "metadati.json",
-                "sk": "metadáta.json",
-                "de": "Metadaten.json",
-                "ru": "метаданные.json",
-                "bg": "метаданни.json"
+        "files": {
+            "metadata.json": {
+                "translations": {
+                    "kind": "file",
+                    "fr": "métadonnées.json",
+                    "it": "metadati.json",
+                    "sk": "metadáta.json",
+                    "de": "Metadaten.json",
+                    "ru": "метаданные.json",
+                    "bg": "метаданни.json"
+                }
             }
         }
     }
