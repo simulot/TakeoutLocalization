@@ -23,7 +23,7 @@ The folder `localizations` contains the localization files in JSON format. Each 
 
 1. **Directories**:
    - Represented by the `kind: "directory"` key.
-   - Can contain subdirectories listed under the `subdirectories` key, and files listed under the `files` key.
+   - Can contain subdirectories listed under the `directories` key, and files listed under the `files` key.
 
 2. **Files**:
    - Represented by the `kind: "file"` key.
@@ -37,25 +37,29 @@ The folder `localizations` contains the localization files in JSON format. Each 
 ```json
 {
     "Service Name": {
-        "translations": {
-            "kind": "directory",
+        "kind": "directory",
+        "localizations": {
+            "en": "Service Name",
             "fr": "Nom du service"
         },
-        "subdirectories": {
-            "subdirectory": {
-                "translations": {
-                    "kind": "directory",
+        "directories": {
+            "Subdirectory": {
+                "kind": "directory",
+                "localizations": {
+                    "en": "Subdirectory",
                     "fr": "Nom du sous-répertoire"
                 },
                 "files": {
                     "file.csv": {
-                        "translations": {
-                            "kind": "file",
-                            "fr": "nom_fichier.csv",
-                            "columns": {
-                                "Column Header": {
-                                    "fr": "En-tête de colonne"
-                                }
+                        "kind": "file",
+                        "localizations": {
+                            "en": "file.csv",
+                            "fr": "fichier.csv"
+                        },
+                        "columns": {
+                            "Column Header": {
+                                "en": "Column Header",
+                                "fr": "En-tête de colonne"
                             }
                         }
                     }
@@ -70,8 +74,6 @@ The folder `localizations` contains the localization files in JSON format. Each 
 
 **Note:** Provide translations based on the exact file names delivered by the Takeout service.
 
-The `.json` file uses the following structure:
-
 ### Adding a New Product
 
 Create a new file in the `localizations` directory with the name of the product (e.g., `ProductName.json`). Use the following format:
@@ -85,108 +87,34 @@ Create a new file in the `localizations` directory with the name of the product 
             "es": "Nombre del producto",
             "ru": "Название продукта"
         },
-        "subdirectories": {},
+        "directories": {},
         "files": {}
     }
 }
 ```
 
-### Adding a New Directory in an Existing Product
+### Adding a localization for an Existing Product 
 
-To add a new directory, include a new key under the appropriate parent directory's `subdirectories` object. Use the following format:
-
-```json
-"directory_name": {
-    "translations": {
-        "kind": "directory",
-        "fr": "nom du répertoire",
-        "es": "nombre del directorio",
-        "ru": "название каталога"
-    },
-    "subdirectories": {},
-    "files": {}
-}
-```
-
-### Adding a New File in an Existing Directory
-
-To add a new file, include a new key under the appropriate directory's `subdirectories` object. Use the following format:
+Locate the element in the JSON file and add a new key under the `localization` object for the desired language. Use the following format:
 
 ```json
-"file_name.csv": {
-    "translations": {
-        "kind": "file",
-        "fr": "nom_fichier.csv",
-        "es": "nombre_archivo.csv",
-        "ru": "имя_файла.csv",
-        "columns": {
-            "title": {
-                "fr": "titre",
-                "es": "título",
-                "ru": "заголовок"
-            },
-            "visibility": {
-                "fr": "visibilité",
-                "es": "visibilidad",
-                "ru": "видимость"
-            }
-        }
+    "localizations": {
+        "fr": "fichier.csv",
+        "es": "archivo.csv",
+        "de": "datei.csv"
     }
-}
 ```
+
 
 ## Guidelines
 
+- fork the repository and create a new branch for your changes.
+- Follow the existing structure for directories and files.
 - Always include the `kind` key to specify whether the entry is a directory or a file.
 - Use the `columns` object to define translations for file headers.
 - Ensure all translations are based on the actual files delivered by the Takeout service.
-- Follow the existing structure to maintain readability and organization.
+- submit a pull request with a clear description of your changes.
 
-## Example
-
-### Adding the `playlists.csv` File in the `playlists` Directory Under the `YouTube and YouTube Music` Directory
-
-According to the actual Takeout files, the directory and the file name aren't translated, but the columns are. The structure is as follows:
-
-```json
-{
-    "YouTube and YouTube Music": {
-        "translations": {
-            "kind": "directory",
-            "fr": "YouTube et YouTube Music",
-            "es": "YouTube y YouTube Music",
-            "ru": "YouTube и YouTube Music"
-        },
-        "subdirectories": {
-            "playlists": {
-                "translations": {
-                    "kind": "directory",
-                    "fr": "playlists"
-                },
-                "files": {
-                    "playlists.csv": {
-                        "translations": {
-                            "kind": "file",
-                            "columns": {
-                                "Playlist ID": {
-                                    "fr": "ID de la playlist",
-                                    "es": "ID de la lista de reproducción",
-                                    "ru": "ID плейлиста"
-                                },
-                                "Playlist Title (Original)": {
-                                    "fr": "Titre (d'origine) de la playlist",
-                                    "es": "Título (original) de la lista de reproducción",
-                                    "ru": "Название (оригинал) плейлиста"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-```
 
 ## Future Work
 
