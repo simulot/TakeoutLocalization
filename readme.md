@@ -5,14 +5,15 @@
 - [Project Aims](#this-project-aims)
 - [Repository Structure](#repository-structure)
 - [How to Contribute](#how-to-contribute)
-- [Steps to Add a Translation](#steps-to-add-a-translation)
-- [Example](#example)
+  - [Adding a New Product](#adding-a-new-product)
+  - [Adding a Localization for an Existing Product](#adding-a-localization-for-an-existing-product)
+- [Guidelines](#guidelines)
 - [Future Work](#future-work)
 
 ## The Problem with Google Takeout Files
 
 Google Takeout is a service that allows users to export their data from various Google services. However, the exported structure depends partially on the user account's language settings. Some files or directories are named differently depending on the language, which can make it difficult to manage and process the data consistently.
-
+ 
 ## This Project Aims
 
 The idea is to collect the different localizations used by Google and present them in a machine-readable format. This way, tool developers can use this data to create scripts or applications that can handle Google Takeout files regardless of the user's language settings.
@@ -93,9 +94,9 @@ Create a new file in the `localizations` directory with the name of the product 
 }
 ```
 
-### Adding a localization for an Existing Product 
+### Adding a Localization for an Existing Product
 
-Locate the element in the JSON file and add a new key under the `localization` object for the desired language. Use the following format:
+Locate the element in the JSON file and add a new key under the `localizations` object for the desired language. Use the following format:
 
 ```json
     "localizations": {
@@ -105,20 +106,17 @@ Locate the element in the JSON file and add a new key under the `localization` o
     }
 ```
 
-
 ## Guidelines
 
-- fork the repository and create a new branch for your changes.
+- Fork the repository and create a new branch for your changes.
 - Follow the existing structure for directories and files.
 - Always include the `kind` key to specify whether the entry is a directory or a file.
 - Use the `columns` object to define translations for file headers.
 - Ensure all translations are based on the actual files delivered by the Takeout service.
-- submit a pull request with a clear description of your changes.
-
+- Submit a pull request with a clear description of your changes.
 
 ## Future Work
 
-- Add a license.
 - Expand the localization files to include more Google services.
 - Provide packages for different programming languages to make it easier to use the localization files.
 
