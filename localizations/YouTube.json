@@ -1,55 +1,66 @@
 {
     "YouTube and YouTube Music": {
-        "translations": {
-            "kind": "directory",
+        "kind": "directory",
+        "localizations": {
+            "en": "YouTube and YouTube Music",
             "fr": "YouTube et YouTube Music"
         },
-        "subdirectories": {
+        "directories": {
             "channels": {
-                "translations": {
-                    "kind": "directory",
+                "kind": "directory",
+                "localizations": {
+                    "en": "channels",
                     "fr": "chaînes"
                 },
                 "files": {
                     "channel.csv": {
-                        "translations": {
-                            "kind": "file",
-                            "fr": "chaîne.csv",
-                            "columns": {
-                                "Channel ID": {
-                                    "fr": "ID de la chaîne"
-                                },
-                                "Channel Title (Original)": {
-                                    "fr": "Titre de la chaîne (d'origine)"
-                                },
-                                "Channel Visibility": {
-                                    "fr": "Visibilité de la chaîne"
-                                }
+                        "kind": "file",
+                        "localizations": {
+                            "en": "channel.csv",
+                            "fr": "chaîne.csv"
+                        },
+                        "columns": {
+                            "Channel ID": {
+                                "en": "Channel ID",
+                                "fr": "ID de la chaîne"
+                            },
+                            "Channel Title (Original)": {
+                                "en": "Channel Title (Original)",
+                                "fr": "Titre de la chaîne (d'origine)"
+                            },
+                            "Channel Visibility": {
+                                "en": "Channel Visibility",
+                                "fr": "Visibilité de la chaîne"
                             }
                         }
                     }
                 }
             },
             "video metadata": {
-                "translations": {
-                    "kind": "directory",
+                "kind": "directory",
+                "localizations": {
+                    "en": "video metadata",
                     "fr": "métadonnées des vidéos"
                 },
                 "files": {
                     "videos.csv": {
-                        "translations": {
-                            "kind": "file",
-                            "fr": "vidéos.csv",
-                            "columns": {
-                                "Video ID": {
-                                    "fr": "ID vidéo"
-                                },
-                                "Channel ID": {
-                                    "fr": "ID de la chaîne"
-                                },
-                                "Video Title (Original)": {
-                                    "fr": "Titre de la vidéo (d'origine)"
-                                }
+                        "kind": "file",
+                        "localizations": {
+                            "en": "videos.csv",
+                            "fr": "vidéos.csv"
+                        },
+                        "columns": {
+                            "Video ID": {
+                                "en": "Video ID",
+                                "fr": "ID vidéo"
+                            },
+                            "Channel ID": {
+                                "en": "Channel ID",
+                                "fr": "ID de la chaîne"
+                            },
+                            "Video Title (Original)": {
+                                "en": "Video Title (Original)",
+                                "fr": "Titre de la vidéo (d'origine)"
                             }
                         }
                     }

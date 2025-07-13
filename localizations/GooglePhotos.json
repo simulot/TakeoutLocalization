@@ -1,7 +1,8 @@
 {
     "Google Photos": {
+        "kind": "directory",
         "translations": {
-            "kind": "directory",
+            "en": "Google Photos",
             "fr": "Google Photos",
             "it": "Google Foto",
             "sk": "Fotky Google",
@@ -11,8 +12,9 @@
         },
         "files": {
             "metadata.json": {
+                "kind": "file",
                 "translations": {
-                    "kind": "file",
+                    "en": "metadata.json",
                     "fr": "métadonnées.json",
                     "it": "metadati.json",
                     "sk": "metadáta.json",
