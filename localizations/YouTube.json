@@ -65,6 +65,13 @@
                         }
                     }
                 }
+            },
+            "videos": {
+                "kind": "directory",
+                "localizations": {
+                    "en": "videos",
+                    "fr": "vidéos"
+                }
             }
         }
     }
