@@ -38,12 +38,12 @@ func (prod Products) GetKeyAndNode(localizedPath string) (string, *Node, error) 
 }
 
 // Globalize returns the globalized entry from the local path.
-func (prod Products) Globalize(localPath string) string {
-	k, _, err := prod.GetKeyAndNode(localPath)
+func (prod Products) Globalize(localPath string) (string, *Node) {
+	k, n, err := prod.GetKeyAndNode(localPath)
 	if err != nil {
-		return path.Base(localPath)
+		return path.Base(localPath), nil
 	}
-	return k
+	return k, n
 }
 
 // Node represents a structure used for organizing and managing localiszations
