@@ -61,6 +61,10 @@
                             "Video Title (Original)": {
                                 "en": "Video Title (Original)",
                                 "fr": "Titre de la vidéo (d'origine)"
+                            },
+                            "Video Create Timestamp": {
+                                "en": "Video Create Timestamp",
+                                "fr": "Code temporel de création de la vidéo"
                             }
                         }
                     }
