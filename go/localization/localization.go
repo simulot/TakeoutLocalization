@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"path"
 	"strings"
 )
 
@@ -34,6 +35,15 @@ func (prod Products) GetKeyAndNode(localizedPath string) (string, *Node, error) 
 		}
 	}
 	return "", nil, errors.New("not found")
+}
+
+// Globalize returns the globalized entry from the local path.
+func (prod Products) Globalize(localPath string) string {
+	k, _, err := prod.GetKeyAndNode(localPath)
+	if err != nil {
+		return path.Base(localPath)
+	}
+	return k
 }
 
 // Node represents a structure used for organizing and managing localiszations
